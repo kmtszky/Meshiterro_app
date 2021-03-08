@@ -3,4 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # has_manyの後には、1:Nの関係になるモデル名を複数形で記述
+  has_many :post_images, dependent: :destroy
+
 end
