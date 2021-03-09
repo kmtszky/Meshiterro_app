@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   # has_manyの後には、1:Nの関係になるモデル名を複数形で記述
   has_many :post_images, dependent: :destroy
-  has_many :post_comments. dependent :destroy
+  has_many :post_comments, dependent: :destroy
 
 end
