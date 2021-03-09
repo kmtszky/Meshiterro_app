@@ -5,5 +5,6 @@ class PostImage < ApplicationRecord
   # 画像アップ用のメソッドattachmentを追加、フィールド名にimageを指定（refileルール）
   attachment :image
   has_many :post_comments, dependent: :destroy
+  
 
 end
