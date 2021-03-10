@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users     # deviseを使用する際にURLとしてusersを含む
   root to: 'homes#top'  # topページをルートパスにする
 
@@ -8,5 +7,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
+
+  resources :users, only:[:show]
 
 end
