@@ -1,17 +1,1 @@
-<% @post_images.each do |post_image| %>
-<div>
-  <%= link_to post_image_path(post_image.id) do %>
-    <%= attachment_image_tag post_image, :image %>
-  <% end %>
-
-  <!--post_imagesフォルダのindex.html.erbファイルでは、画像を保持しているのはpost_imageモデルに紐づけられたuserモデル-->
-  <p>投稿ユーザー画像：<%= attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
-  <p>ショップ名：<%= post_image.shop_name %></p>
-  <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
-  <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
-</div>
-<% end %>
-<%= paginate @post_images %>
-<!--attachment_image_taｇ:refile側が用意したヘルパー。imgタグを作成し、post_image変数のimage_idに保存された画像のimgタグを生成-->
-<!--%= post_image.user.name %：post_image変数のuser_idに関連付けられているuserモデルのnameカラムを表示-->
+<%= render 'post_images/list', post_images: @post_images %>
